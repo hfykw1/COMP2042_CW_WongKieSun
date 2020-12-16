@@ -1,5 +1,6 @@
 package model;
 
+
 import java.util.ArrayList;
 
 import application.*;
@@ -19,15 +20,17 @@ public class Animal extends Actor {
 	Image imgS2;
 	Image imgD2;
 	
-	private int points = 0; 
+	private int points = 0; //keeps track of the points in the game 
 	private int end = 0;
 	
+	//the variables below are used for the movement of the frog
+	//private boolean second = false;
 	private boolean noMove = false;
 	
 	private static final String FROGGER_URL_STRING="";
-	private static final double movement = 13.3333333*2; 
-	private static final double movementX = 10.666666*2; 
-	private static final int 	imgSize = 40;  
+	private static final double movement = 13.3333333*2; //moves in Y direction
+	private static final double movementX = 10.666666*2; //moves in X direction 
+	private static final int 	imgSize = 40;  //is used as an argument in Image constructor to set the size of images as they are initialized 
 	
 	private boolean carDeath = false;
 	private boolean waterDeath = false;
@@ -41,15 +44,16 @@ public class Animal extends Actor {
 	private int Death=0;
 	private int carD = 0;
 	private double w = 800; 
-	
+	//this is to check if the frog is at the end or not
 	ArrayList<End> inter = new ArrayList<>();
 	ArrayList<End> activatedEnds =new ArrayList<End>();
-	
+	//why does everything happen in the constructor with this class
 	public Animal(String imageLink) {
-		setImage(new Image(imageLink, imgSize, imgSize, true, true)); 
-		
+		setImage(new Image(imageLink, imgSize, imgSize, true, true)); //Image constructor used as argument to setImage method
+		//initial position of the frog
+		//AnimalController controller= new AnimalController(this);
 		setFroggerToStart();
-		
+		//initializing the images 
 		imgW1 = new Image("file:src/model/ActorResources/froggerUp.png", imgSize, imgSize, true, true);
 		imgA1 = new Image("file:src/model/ActorResources/froggerLeft.png", imgSize, imgSize, true, true);
 		imgS1 = new Image("file:src/model/ActorResources/froggerDown.png", imgSize, imgSize, true, true);
@@ -62,8 +66,9 @@ public class Animal extends Actor {
 		
 		createKeyListner();
 	}
-	
-
+	/**
+	 * This method makes the KeyListners for this class.
+	 */
 	private void createKeyListner() {
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 
@@ -190,7 +195,10 @@ public class Animal extends Actor {
 			setFroggerToStart();
 		}
 	}
-	
+	/**
+	 * Calls the stageEnded method to check if the stage has ended. hasStageChange field will be changed by the stageEnded method.
+	 * @return returns true if hasStageChanged is true else it returns false
+	 */
 	public boolean hasStageEnded() {
 		stageEnded();
 		if(hasStageChanged) {
@@ -200,7 +208,10 @@ public class Animal extends Actor {
 			return false;
 		}
 	}
-	
+	/**
+	 * Method checks whether all Ends of the game have been filled. If they have, the method will set all the fields of this class to their 
+	 * initial values. It will also set hasStageChanged boolean variable to true for the hasStageEnded method.
+	 */
 	private void stageEnded() {
 		if(activatedEnds.size()==5) {
 			//points=0;
@@ -303,7 +314,10 @@ public class Animal extends Actor {
 		
 	}
 	
-	
+	/**
+	 * This method checks how many times frogger has died for the GameSetter class and, returns true if the number of deaths exceeds a certain value.
+	 * @return returns whether the integer Death has increased more than a specified value
+	 */
 	public boolean isGameOver() {
 		//System.out.println(Death);
 		return Death>3;
@@ -328,6 +342,9 @@ public class Animal extends Actor {
 		
 	}
 
+	/*
+	 * public boolean getStop() { return end==5; }
+	 */
 	
 	public int getPoints() {
 		return points;
@@ -342,6 +359,9 @@ public class Animal extends Actor {
 		
 	}
 	
+	/*
+	 * public int getEnd() { return end; }
+	 */
 	private void setFroggerToStart() {
 		setX(300);
 		setY(679.8+movement);
