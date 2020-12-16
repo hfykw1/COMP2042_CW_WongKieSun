@@ -1,5 +1,4 @@
-package model;
-
+package view;
 
 
 import java.util.ArrayList;
@@ -15,8 +14,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import model.Actor;
 
-
+/**
+ * Method used in order to get the Pane in which the actor resides
+ * @return return pane actor residing in as a World object 
+ */
 public abstract class World extends Pane {
     private AnimationTimer timer;
     
@@ -96,15 +99,16 @@ public abstract class World extends Pane {
     public void remove(Actor actor) {
         getChildren().remove(actor);
     }
-
+  //the method below will return a list of Actor Objects //the method takes in an actor object as a parameter 
+    @SuppressWarnings("unchecked")
     public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
+        //checking if the object cls that we have passed into the method is an instance of Node class
         for (Node n: getChildren()) {
             if (cls.isInstance(n)) {
-                someArray.add((A)n);
-            }
-        }
-        return someArray;
+                someArray.add((A)n); //if it is we pass this object into our array
+            }}
+		return someArray;
     }
 
     public abstract void act(long now);
