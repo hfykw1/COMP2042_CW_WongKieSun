@@ -14,26 +14,68 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Main extends Application {
+public class Main  {
 	AnimationTimer timer;
 	MyStage background;
 	Animal animal;
-	public static void main(String[] args) {
-		launch(args);
-	}
+	Stage primaryStage;
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+public void startgame() {
 	    background = new MyStage();
 	    Scene scene  = new Scene(background,600,800);
-	    
-		//Obstacle obstacle = new Obstacle("file:src/model/ActorResources/truck1Right.png", 25, 25, 3);
-		//Obstacle obstacle1 = new Obstacle("file:src/model/ActorResources/truck2Right.png", 100, 100,2 );
-		//Obstacle obstacle2 = new Obstacle("file:src/model/ActorResources/truck1Right.png",0,  150, 1);
+	    primaryStage = new Stage();
+		
+	    addBackground();
+		background.start();
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		start();  
+}
 
-		BackgroundImage froggerback = new BackgroundImage("file:src/model/ActorResources/Screen Shot 2017-05-29 at 10.02.14 PM.png");
-	    
-		background.add(froggerback);
+public void createTimer() {
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+            	if (animal.changeScore()) {
+            		setNumber(animal.getPoints());
+            	}
+            	if (animal.getStop()) {
+            		System.out.print("STOPP:");
+            		background.stopMusic();
+            		stop();
+            		background.stop();
+            		endScreen();
+            		
+            	}
+            }
+        };
+    }
+
+public void start() {
+		background.playMusic();	//Play Background Music
+    	createTimer(); //shows timer
+        timer.start(); //starts timer
+    }
+
+public void stop() {
+        timer.stop();
+    }
+    
+public void setNumber(int n) {
+    	int shift = 0;
+    	while (n > 0) {
+    		  int d = n / 10;
+    		  int k = n - d * 10;
+    		  n = d;
+    		  background.add(new Digit(k, 30, 360 - shift, 25));
+    		  shift+=30;
+    		}
+    }
+
+public void addBackground() {
+    	
+    	BackgroundImage froggerback = new BackgroundImage("file:src/model/Screen Shot 2017-05-29 at 10.02.14 PM.png");
+    	background.add(froggerback);
 		
 		background.add(new Log("file:src/model/ActorResources/log3.png", 150, 0, 166, 0.75));
 		background.add(new Log("file:src/model/ActorResources/log3.png", 150, 220, 166, 0.75));
@@ -45,7 +87,7 @@ public class Main extends Application {
 		background.add(new Log("file:src/model/ActorResources/log3.png", 150, 50, 329, 0.75));
 		background.add(new Log("file:src/model/ActorResources/log3.png", 150, 270, 329, 0.75));
 		background.add(new Log("file:src/model/ActorResources/log3.png", 150, 490, 329, 0.75));
-		//background.add(new Log("file:src/model/ActorResources/log3.png", 150, 570, 329, 0.75));
+		//background.add(new Log("file:src/model/log3.png", 150, 570, 329, 0.75));
 		
 		background.add(new Turtle(500, 376, -1, 130, 130));
 		background.add(new Turtle(300, 376, -1, 130, 130));
@@ -94,50 +136,19 @@ public class Main extends Application {
 		//background.add(obstacle);
 		//background.add(obstacle1);
 		//background.add(obstacle2);
-		background.start();
-		primaryStage.setScene(scene);
-		primaryStage.show();
-		start();  
-	}
-	public void createTimer() {
-        timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-            	if (animal.changeScore()) {
-            		setNumber(animal.getPoints());
-            	}
-            	if (animal.getStop()) {
-            		System.out.print("STOPP:");
-            		background.stopMusic();
-            		stop();
-            		background.stop();
-            		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
-            		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();
-            	}
-            }
-        };
-    }
-	public void start() {
-		background.playMusic();
-    	createTimer();
-        timer.start();
+		//Obstacle obstacle = new Obstacle("file:src/model/ActorResources/truck1Right.png", 25, 25, 3);
+		//Obstacle obstacle1 = new Obstacle("file:src/model/ActorResources/truck2Right.png", 100, 100,2 );
+		//Obstacle obstacle2 = new Obstacle("file:src/model/ActorResources/truck1Right.png",0,  150, 1);
+
     }
 
-    public void stop() {
-        timer.stop();
-    }
-    
-    public void setNumber(int n) {
-    	int shift = 0;
-    	while (n > 0) {
-    		  int d = n / 10;
-    		  int k = n - d * 10;
-    		  n = d;
-    		  background.add(new Digit(k, 30, 360 - shift, 25));
-    		  shift+=30;
-    		}
-    }
+public void endScreen() {
+	Alert alert = new Alert(AlertType.INFORMATION);
+	alert.setTitle("You Have Won The Game!");
+	alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
+	alert.setContentText("Highest Possible Score: 800");
+	alert.show();
+}
+
+
 }

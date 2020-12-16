@@ -1,12 +1,16 @@
 package model;
 
-
 import javafx.scene.image.Image;
 
 public class Turtle extends Actor{
 	Image turtle1;
 	Image turtle2;
 	Image turtle3;
+	
+	private static final String TURTLEANIMATION_1="file:src/model/ActorResources/TurtleAnimation1.png"; //set turtle Image
+	private static final String TURTLEANIMATION_2="file:src/model/ActorResources/TurtleAnimation2.png";
+	private static final String TURTLEANIMATION_3="file:src/model/ActorResources/TurtleAnimation3.png";
+	
 	private int speed;
 	int i = 1;
 	boolean bool = true;
@@ -33,12 +37,14 @@ public class Turtle extends Actor{
 			setX(600);
 	}
 	public Turtle(int xpos, int ypos, int s, int w, int h) {
-		turtle1 = new Image("file:src/model/ActorResources/TurtleAnimation1.png", w, h, true, true);
-		turtle2 = new Image("file:src/model/ActorResources/TurtleAnimation2.png", w, h, true, true);
-		turtle3 = new Image("file:src/model/ActorResources/TurtleAnimation3.png", w, h, true, true);
+		turtle1 = new Image(TURTLEANIMATION_1, w, h, true, true);
+		turtle2 = new Image(TURTLEANIMATION_2, w, h, true, true);
+		turtle3 = new Image(TURTLEANIMATION_3, w, h, true, true);
 		setX(xpos);
 		setY(ypos);
 		speed = s;
 		setImage(turtle2);
 	}
+	
+	
 }

@@ -18,7 +18,7 @@ public class Log extends Actor {
 		setImage(new Image(imageLink, size,size, true, true));
 		setX(xpos);
 		setY(ypos);
-		speed = s;
+		this.speed = s;
 		
 	}
 	public boolean getLeft() {

@@ -1,13 +1,13 @@
 package model;
 
-
-
 import javafx.scene.image.Image;
 
 public class Obstacle extends Actor {
-	private int speed;
+	private int speed=0;
+	
 	@Override
 	public void act(long now) {
+		this.speed =getSpeed()*this.speed;
 		move(speed , 0);
 		if (getX() > 600 && speed>0)
 			setX(-200);
@@ -19,7 +19,7 @@ public class Obstacle extends Actor {
 		setImage(new Image(imageLink, w,h, true, true));
 		setX(xpos);
 		setY(ypos);
-		speed = s;
+		this.speed = s;
 	}
 
 }
