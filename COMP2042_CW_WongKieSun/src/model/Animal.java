@@ -1,6 +1,5 @@
 package model;
 
-
 import java.util.ArrayList;
 
 import application.*;
@@ -54,21 +53,12 @@ public class Animal extends Actor {
 		//AnimalController controller= new AnimalController(this);
 		setFroggerToStart();
 		//initializing the images 
-		imgW1 = new Image("file:src/model/ActorResources/froggerUp.png", imgSize, imgSize, true, true);
-		imgA1 = new Image("file:src/model/ActorResources/froggerLeft.png", imgSize, imgSize, true, true);
-		imgS1 = new Image("file:src/model/ActorResources/froggerDown.png", imgSize, imgSize, true, true);
-		imgD1 = new Image("file:src/model/ActorResources/froggerRight.png", imgSize, imgSize, true, true);
-		imgW2 = new Image("file:src/model/ActorResources/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgA2 = new Image("file:src/model/ActorResources/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgS2 = new Image("file:src/model/ActorResources/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgD2 = new Image("file:src/model/ActorResources/froggerRightJump.png", imgSize, imgSize, true, true);
+		setImage();
 		
 		
 		createKeyListner();
 	}
-	/**
-	 * This method makes the KeyListners for this class.
-	 */
+	
 	private void createKeyListner() {
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 
@@ -152,10 +142,15 @@ public class Animal extends Actor {
 		
 		ifWaterDeath(now);
 		
+		ifCrocodileDeath(now);
+		
 		if (getX() == 240 && getY() == 82) {
 			stop = true;
 		}
 		
+		if(getIntersectingObjects(Crocodile.class).size()>=1) {
+			crocodileDeath=true;
+		}
 		else if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
 				move(-2,0);
@@ -195,10 +190,7 @@ public class Animal extends Actor {
 			setFroggerToStart();
 		}
 	}
-	/**
-	 * Calls the stageEnded method to check if the stage has ended. hasStageChange field will be changed by the stageEnded method.
-	 * @return returns true if hasStageChanged is true else it returns false
-	 */
+	
 	public boolean hasStageEnded() {
 		stageEnded();
 		if(hasStageChanged) {
@@ -208,10 +200,6 @@ public class Animal extends Actor {
 			return false;
 		}
 	}
-	/**
-	 * Method checks whether all Ends of the game have been filled. If they have, the method will set all the fields of this class to their 
-	 * initial values. It will also set hasStageChanged boolean variable to true for the hasStageEnded method.
-	 */
 	private void stageEnded() {
 		if(activatedEnds.size()==5) {
 			//points=0;
@@ -313,11 +301,38 @@ public class Animal extends Actor {
 		}
 		
 	}
+	private void ifCrocodileDeath(long now) {
+		if (crocodileDeath) {
+			noMove = true;
+			if ((now)% 11 ==0) {
+				carD++;
+			}
+			if (carD==1) {
+				setImage(new Image("file:src/model/ActorResources/cardeath1.png", imgSize, imgSize, true, true));
+			}
+			if (carD==2) {
+				setImage(new Image("file:src/model/ActorResources/cardeath2.png", imgSize, imgSize, true, true));
+			}
+			if (carD==3) {
+				setImage(new Image("file:src/model/ActorResources/cardeath3.png", imgSize, imgSize, true, true));
+			}
+			if (carD == 4) {
+				setFroggerToStart();
+				crocodileDeath= false;
+				Death++;
+				carD = 0;
+				setImage(new Image("file:src/model/ActorResources/froggerUp.png", imgSize, imgSize, true, true));
+				noMove = false;
+				if (points>50) {
+					points-=50;
+					changeScore = true;
+				}
+			}
+			
+		}
+		
+	}
 	
-	/**
-	 * This method checks how many times frogger has died for the GameSetter class and, returns true if the number of deaths exceeds a certain value.
-	 * @return returns whether the integer Death has increased more than a specified value
-	 */
 	public boolean isGameOver() {
 		//System.out.println(Death);
 		return Death>3;
@@ -369,10 +384,16 @@ public class Animal extends Actor {
 	public Image getFroggerUp() {
 		return imgW1;
 	}
-
-	public boolean getStop() {
-		// TODO Auto-generated method stub
-		return false;
+	
+	public void setImage() {
+		imgW1 = new Image("file:src/model/ActorResources/froggerUp.png", imgSize, imgSize, true, true);
+		imgA1 = new Image("file:src/model/ActorResources/froggerLeft.png", imgSize, imgSize, true, true);
+		imgS1 = new Image("file:src/model/ActorResources/froggerDown.png", imgSize, imgSize, true, true);
+		imgD1 = new Image("file:src/model/ActorResources/froggerRight.png", imgSize, imgSize, true, true);
+		imgW2 = new Image("file:src/model/ActorResources/froggerUpJump.png", imgSize, imgSize, true, true);
+		imgA2 = new Image("file:src/model/ActorResources/froggerLeftJump.png", imgSize, imgSize, true, true);
+		imgS2 = new Image("file:src/model/ActorResources/froggerDownJump.png", imgSize, imgSize, true, true);
+		imgD2 = new Image("file:src/model/ActorResources/froggerRightJump.png", imgSize, imgSize, true, true);
 	}
 	
 

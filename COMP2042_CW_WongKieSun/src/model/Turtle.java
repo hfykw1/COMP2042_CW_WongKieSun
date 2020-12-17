@@ -7,12 +7,11 @@ public class Turtle extends Actor{
 	Image turtle2;
 	Image turtle3;
 	
-	private static final String TURTLEANIMATION_1="file:src/model/ActorResources/TurtleAnimation1.png"; //set turtle Image
+	private static final String TURTLEANIMATION_1="file:src/model/ActorResources/TurtleAnimation1.png";
 	private static final String TURTLEANIMATION_2="file:src/model/ActorResources/TurtleAnimation2.png";
 	private static final String TURTLEANIMATION_3="file:src/model/ActorResources/TurtleAnimation3.png";
 	
-	private int speed;
-	int i = 1;
+	private int speed=0;
 	boolean bool = true;
 	@Override
 	public void act(long now) {
@@ -42,9 +41,7 @@ public class Turtle extends Actor{
 		turtle3 = new Image(TURTLEANIMATION_3, w, h, true, true);
 		setX(xpos);
 		setY(ypos);
-		speed = s;
+		this.speed = s;
 		setImage(turtle2);
 	}
-	
-	
 }

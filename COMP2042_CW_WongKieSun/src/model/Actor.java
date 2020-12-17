@@ -1,6 +1,5 @@
 package model;
 
-
 import javafx.scene.image.ImageView;
 import view.World;
 
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 /**
  * This abstract class extends ImageView and allows for other class to implement its act method. It manipulates ImageView by moving it around in the GUI and
  * check for any collisions.
- * @author Sun
+ * @author Asus
  *
  */
 public abstract class Actor extends ImageView{
@@ -53,7 +52,7 @@ public abstract class Actor extends ImageView{
     
     /**
      * Is a method that 
-     * @param <A >
+     * @param <A>
      * @param cls
      * @return
      */
