@@ -1,6 +1,6 @@
 # Frogger (Software Maintenance)
 - Frogger is a game remake based on the 1981 arcade game by the same name and it is coded with Java
-- This coursework is done by Law Khye Yueh, Student ID 20129374. 
+- This coursework is done by Wong Kie Sun, Student ID 20127827.
 - The Frogger project is properly maintained and divided into a few parts.
 
 
@@ -29,14 +29,14 @@
 
 
 ## 3. Bug Fixes
-- Before the score will not deduct when it is lower than 50. The original author added an if condition to prevent error. The bug has been fixed and the marks will be equal to 0 if the marks is lower than 50. 
--	The frog can jump into the platform even though the platform is occupied by another frog. The bug is fixed so that the frog is no longer allowed into the platform if it's occupied by another frog. 
-- At first, background image was not shown in the game scene. After fixing it, the image is displayed:
-- Frog is now not allowed to jump to outside of the scene after the fix whereas it was possible before.	
+- Before, the score will not be deducted when it is lower than 50. Original author added an else if condition to prevent error. Bug has now been fixed and the marks will be equal to 0 if the marks is lower than 50. 
+- Fixed that the frog can jump into the platform even though the platform is occupied by another frog. Frog is no longer allowed to jump into platform if it's occupied by another frog.
+- Fixed that background image was not shown in the game scene by displaying the background image.
+- Fixed that frog are able to jump outside of the scene, frog can no longer be allowed to jump outside the scene. 
 
 
 ## 4. JUnit Test
-- JUnit 4 has been added into the project and 6 tests have been performed to show my understanding on JUnit. 
+- JUnit 4 has been added into the project and 4 tests have been performed to show my understanding on JUnit. 
 - Junit tests were successful without any errors.
 
 
