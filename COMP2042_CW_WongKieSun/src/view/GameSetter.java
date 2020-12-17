@@ -105,7 +105,7 @@ public class GameSetter {
 	 */
 
 	private void makeFrogger() {
-		frogger = new Animal(FROGGER_URL);
+		frogger = new Animal();
 		objects.add(frogger);
 	}
 	/**

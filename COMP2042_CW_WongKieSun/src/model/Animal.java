@@ -29,7 +29,7 @@ public class Animal extends Actor {
 	private static final String FROGGER_URL_STRING="";
 	private static final double movement = 13.3333333*2; //moves in Y direction
 	private static final double movementX = 10.666666*2; //moves in X direction 
-	private static final int 	imgSize = 40;  //is used as an argument in Image constructor to set the size of images as they are initialized 
+	public static final int 	imgSize = 40;  //is used as an argument in Image constructor to set the size of images as they are initialized 
 	
 	private boolean carDeath = false;
 	private boolean waterDeath = false;
@@ -47,8 +47,8 @@ public class Animal extends Actor {
 	ArrayList<End> inter = new ArrayList<>();
 	ArrayList<End> activatedEnds =new ArrayList<End>();
 	//why does everything happen in the constructor with this class
-	public Animal(String imageLink) {
-		setImage(new Image(imageLink, imgSize, imgSize, true, true)); //Image constructor used as argument to setImage method
+	public Animal() {
+		setImage(imgW1);//setImage(new Image(imageLink, imgSize, imgSize, true, true)); //Image constructor used as argument to setImage method
 		//initial position of the frog
 		//AnimalController controller= new AnimalController(this);
 		setFroggerToStart();
