@@ -8,29 +8,32 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class FroggerButton extends Button {
+	
+	private final String FONT_PATH= "src/model/MenuResources/kenvector_future.ttf";
+	private final String BUTTON_PRESSED_STYLE="-fx-background-color: transparent; -fx-background-image: url(/model/MenuResources/blue_button05.png)";
+	private final String BUTTON_RELEASED_STYLE="-fx-background-color: transparent; -fx-background-image: url(/model/MenuResources/blue_button04.png)";
 
-	private final String FONT_PATH = "src/model/MenuResources/kenvector_future.tff";
-	private final String BUTTON_PRESSED_STYLE = " -fx-background-color: transparent; -fx-background-image: url('model/MenuResources/yellow_button_pressed.png');";
-	private final String BUTTON_FREE_STYLE =    " -fx-background-color: transparent; -fx-background-image: url('model/MenuResources/yellow_button.png');";
 	
 	public FroggerButton(String text) {
 		setText(text);
 		setButtonFont();
-		setPrefWidth(190); // This value are equal to our image's Width
-		setPrefHeight(49);  // This value are equal to our image's Height
-		setStyle(BUTTON_FREE_STYLE); // Set Default Style
-		initializeButtonListeners();
+		setPrefWidth(190);
+		setPrefHeight(49);
+		setStyle(BUTTON_RELEASED_STYLE);
+		intitializeButtonListners();
 	}
-	
-	private void setButtonFont() {
+	public void setButtonFont() {
+		
 		try {
 			setFont(Font.loadFont(new FileInputStream(FONT_PATH), 23));
 		} catch (FileNotFoundException e) {
-			setFont(Font.font("Verdana",23));
+			setFont(Font.font("Verdana", 23));
 		}
+		
 	}
 	//method to style button when button is pressed
 	private void setButtonPressedStyle() {
@@ -40,59 +43,59 @@ public class FroggerButton extends Button {
 	}
 	//method to style button in normal conditions
 	private void setButtonReleasedStyle() {
-		setStyle(BUTTON_FREE_STYLE);
+		setStyle(BUTTON_RELEASED_STYLE);
 		setPrefHeight(49);
 		setLayoutY(getLayoutY() - 4);
+		
 	}
 	
-	private void initializeButtonListeners() {
+	private void intitializeButtonListners() {
+		
 		
 		setOnMousePressed(new EventHandler<MouseEvent>() {
+
 			@Override
 			public void handle(MouseEvent event) {
 				if(event.getButton().equals(MouseButton.PRIMARY)) {
 					setButtonPressedStyle();
-				}
-					
+				}	
 			}
-			
 		});
+		
 		setOnMouseReleased(new EventHandler<MouseEvent>() {
+
 			@Override
 			public void handle(MouseEvent event) {
 				if(event.getButton().equals(MouseButton.PRIMARY)) {
 					setButtonReleasedStyle();
-				}
-					
+				}	
 			}
-			
 		});
 		
 		setOnMouseEntered(new EventHandler<MouseEvent>() {
+
 			@Override
-			public void handle(MouseEvent arg0) {
-				setEffect(new DropShadow());
+			public void handle(MouseEvent event) {
+				setEffect(new DropShadow(4.0, Color.ALICEBLUE));
 			}
-			
 		});
 		
-		setOnMouseEntered(new EventHandler<MouseEvent>() {
+		setOnMouseExited(new EventHandler<MouseEvent>() {
+
 			@Override
-			public void handle(MouseEvent arg0) {
+			public void handle(MouseEvent event) {
 				setEffect(null);
 			}
-			
 		});
 	}
 	
 	
+	
+	
+	
+	
+	
+	
 }
-
-
-
-
-
-
-
-
-
+	
+	
