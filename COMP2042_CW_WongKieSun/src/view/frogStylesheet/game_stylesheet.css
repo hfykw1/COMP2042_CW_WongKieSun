@@ -4,7 +4,7 @@
 	-fx-border-color:#D82020;
 	-fx-background-color:transparent;
 	-fx-text-fill:white;
-	-fx-padding: 5px 25px 5px 25px;
+	-fx-padding: 5px 25px 5px 25px; 
 }
 
 .button:hover{
