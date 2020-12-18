@@ -44,7 +44,7 @@ public class GameViewManager {
 	private Animal frogger;
 	private ArrayList<Actor> objects;
 	private String newHighScore; //used if the user sets a new High Score 
-	private int numOfLevel;
+	private int numOfLevel; 
 	/*
 	 * private String highScoreLazy; private String highScoreAverage; private String
 	 * highScoreCrazy;
@@ -68,6 +68,7 @@ public class GameViewManager {
 	public GameViewManager() {
 		initializeStage();
 		createBackground();
+		
 	}
 	
 	/**
@@ -81,6 +82,9 @@ public class GameViewManager {
 		gameStage = new Stage();
 		gameStage.setScene(gameScene);
 		gameStage.setResizable(false);
+		Image image = new Image("view/ViewResources/froggerUp.png");
+		gameStage.getIcons().add(image);
+		gameStage.setTitle("Frogger");
 	}
 	
 	/**

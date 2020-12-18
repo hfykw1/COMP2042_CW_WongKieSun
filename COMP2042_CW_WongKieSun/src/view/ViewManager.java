@@ -43,7 +43,7 @@ public class ViewManager {
 	
 	private FroggerSubScene subSceneScore;
 	private FroggerSubScene subSceneHelp;
-	private FroggerSubScene subSceneLevelChooser;
+	private FroggerSubScene subSceneLevelChooser; 
 	
 	private FroggerSubScene sceneToHide; //field is used to store the scene that needs to be hidden
 	
@@ -65,6 +65,7 @@ public class ViewManager {
 		mainPane.getStylesheets().add("view/frogStylesheet/mainmenu_stylesheet.css");
 		Image image = new Image("view/ViewResources/froggerUp.png");
 		mainStage.getIcons().add(image);
+		mainStage.setTitle("Frogger");
 	}
 	
 	//if there is a subscene that needs to be hidden move it 
