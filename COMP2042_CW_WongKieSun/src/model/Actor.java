@@ -51,8 +51,8 @@ public abstract class Actor extends ImageView{
     }
     
     /**
-     * Is a method that 
-     * @param <A extends Actor> 
+     * Is a method that will returns Array
+     * @param A
      * @param cls
      * @return array
      */
