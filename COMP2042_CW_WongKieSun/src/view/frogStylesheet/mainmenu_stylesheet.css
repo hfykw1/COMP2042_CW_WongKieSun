@@ -10,7 +10,7 @@
 }
 
 .button{
-	-fx-border-radius:8px;
+	-fx-border-radius:8px; 
 	-fx-border-width:3px;
 	-fx-border-color:#07164A;
 	-fx-background-color:transparent;
