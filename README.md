@@ -36,7 +36,7 @@
 
 
 ## 4. JUnit Test
-- JUnit 4 has been added into the project and 4 tests have been performed to show my understanding on JUnit. 
+- JUnit 5 has been added into the project and 4 tests have been performed to show my understanding on JUnit. 
 - Junit tests were successful without any errors.
 
 
@@ -72,7 +72,7 @@ This game is copyright FREE.
 1. Download the whole ZIP file from GitHub onto your desktop. 
 2. Save your ZIP file into a new folder and right-click select Extract Here.
 3. Import the project into Eclipse IDE. 
-4. Select TryFrog1 file folder then click Finish.
+4. Select COMP2042_CW_WongKieSun file folder then click Finish.
 5. Click the Run drop down menu and click Run Configurations. 
-6. Put in --module-path "C:\Users\lawkh\Downloads\javafx-sdk-11.0.2\lib" --add-modules=ALL-MODULE-PATH in VM arguments. 
+6. Put in --module-path "D:\D Folder\Downloads D\javafx-sdk-11.0.2\lib" --add-modules=ALL-MODULE-PATH in VM arguments. (This depends on where you had installed your javafx-sdk-11.0.2) 
 7. Game is good to go.
