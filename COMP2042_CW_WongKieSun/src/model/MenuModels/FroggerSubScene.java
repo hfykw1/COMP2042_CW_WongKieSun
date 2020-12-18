@@ -37,6 +37,10 @@ public class FroggerSubScene extends SubScene{
 		setLayoutY(210);
 	}
 	
+	/**
+	 * Method to move sub scene around
+	 * @author sun
+	 */
 	public void moveSubScene() {
 		TranslateTransition transition = new TranslateTransition();
 		transition.setDuration(Duration.seconds(0.3));
@@ -53,7 +57,11 @@ public class FroggerSubScene extends SubScene{
 		transition.play();
 	}
 	
-	//this method will return the Pane for the subscene 
+	
+	/**
+	 * Method to return the pane for the subscene
+	 * @author sun
+	 */
 	public AnchorPane getPane() {
 		return (AnchorPane) this.getRoot();
 	}

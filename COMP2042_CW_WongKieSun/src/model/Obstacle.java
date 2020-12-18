@@ -5,6 +5,13 @@ import javafx.scene.image.Image;
 public class Obstacle extends Actor{
 	//int speedMultiplier;
 	private int speed=0;
+	
+	/**
+     * Method to  set movement speeed  for obstacle
+     * @param now
+     * Get X speed, and re-set it.
+     * @author sun
+     */
 	@Override
 	public void act(long now) {
 		this.speed =getSpeed()*this.speed;
@@ -15,6 +22,16 @@ public class Obstacle extends Actor{
 			setX(600);
 	}
 	
+	/**
+     * Method set Obstacle Image
+     * @param imageLink
+     * @param size
+     * @param xpos
+     * @param ypos
+     * @param s
+     * @return points
+     * @author sun
+     */
 	public Obstacle(String imageLink, int xpos, int ypos, int s, int w, int h) {	
 		setImage(new Image(imageLink, w,h, true, true));
 		setX(xpos);

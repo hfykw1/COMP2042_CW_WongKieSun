@@ -30,7 +30,7 @@ import model.MenuModels.LEVEL;
 /**
  * This class is called the GameViewManager and it is responsible for rendering the view of the program.
  * It makes a World Object, a Game Setter Object and then makes these two work together in a timer. 
- * @author HP
+ * @author Sun
  * 
  *
  */
@@ -72,6 +72,7 @@ public class GameViewManager {
 	
 	/**
 	 * The initializeStage() method is able used to set up the Scene and the stage for the constructor.
+	 * @author sun
 	 */
 
 	private void initializeStage() {
@@ -84,6 +85,7 @@ public class GameViewManager {
 	
 	/**
 	 * The createBackground method sets the background Image in the world object.
+	 * @author sun
 	 */
 	
 	private void createBackground() {

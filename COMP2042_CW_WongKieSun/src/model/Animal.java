@@ -58,7 +58,10 @@ public class Animal extends Actor {
 		
 		createKeyListner();
 	}
-	
+	 /**
+     * Method used to create KeyListner
+     * @author sun
+     */
 	private void createKeyListner() {
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 
@@ -134,6 +137,13 @@ public class Animal extends Actor {
 		
 	}
 
+	
+	/**
+     * Method for act
+     * @param now
+     * Check for ifCarDeath, ifWaterDeath, ifCrocodileDeath Conditions.
+     * @author sun
+     */
 	@Override
 	public void act(long now) {		
 		froggerInBound();
@@ -191,6 +201,12 @@ public class Animal extends Actor {
 		}
 	}
 	
+	/**
+     * Method boolean to return  hasstageEnded, true or false
+     * @return true, if stage changed
+     * @return false if stage not change
+     * @author sun
+     */
 	public boolean hasStageEnded() {
 		stageEnded();
 		if(hasStageChanged) {
@@ -200,6 +216,13 @@ public class Animal extends Actor {
 			return false;
 		}
 	}
+	
+	/**
+     * Method boolean to return  hasstageEnded, true or false
+     * @return true
+     * @return false
+     * @author sun
+     */
 	private void stageEnded() {
 		if(activatedEnds.size()==5) {
 			//points=0;
@@ -226,7 +249,10 @@ public class Animal extends Actor {
 		
 		
 	}
-
+	/**
+     * Method to set Water Death Image for different conditions
+     * @author sun
+     */
 	private void ifWaterDeath(long now) {
 		
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
@@ -267,7 +293,10 @@ public class Animal extends Actor {
 		}
 		
 	}
-
+	/**
+     * Method to set Car Death Image for different conditions
+     * @author sun
+     */
 	private void ifCarDeath(long now) {
 		
 		if (carDeath) {
@@ -301,6 +330,11 @@ public class Animal extends Actor {
 		}
 		
 	}
+	
+	/**
+     * Method to set Crocodile Death Image for different conditions
+     * @author sun
+     */
 	private void ifCrocodileDeath(long now) {
 		if (crocodileDeath) {
 			noMove = true;
@@ -332,7 +366,11 @@ public class Animal extends Actor {
 		}
 		
 	}
-	
+	/**
+     * Method boolean , see if isGameOver is true or false
+     * @return Death
+     * @author sun
+     */
 	public boolean isGameOver() {
 		//System.out.println(Death);
 		return Death>3;
@@ -343,7 +381,10 @@ public class Animal extends Actor {
 		
 	}
 	
-	
+	/**
+     * Method set for different movement for frogger in bound
+     * @author sun
+     */
 	private void froggerInBound() {
 		if (getY()<0 || getY()>734) {
 			setFroggerToStart();
@@ -361,10 +402,21 @@ public class Animal extends Actor {
 	 * public boolean getStop() { return end==5; }
 	 */
 	
+	/**
+     * Method to get points
+     * @return points
+     * @author sun
+     */
 	public int getPoints() {
 		return points;
 	}
 	
+	/**
+     * Method boolean to change score
+     * @return true if score is unchangeable
+     * @return false if score is changed.
+     * @author sun
+     */
 	public boolean changeScore() {
 		if (changeScore) {
 			changeScore = false;
@@ -377,14 +429,30 @@ public class Animal extends Actor {
 	/*
 	 * public int getEnd() { return end; }
 	 */
+	
+	/**
+     * Method to set Frogger to Start
+     * Setting X, and Y(depends on variable movement)
+     * @author sun
+     */
 	private void setFroggerToStart() {
 		setX(300);
 		setY(679.8+movement);
 	}
+	/**
+     * Method to set Imagre for FroggerUp
+     * @return imgW1
+     * @author sun
+     */
 	public Image getFroggerUp() {
 		return imgW1;
 	}
 	
+	/**
+     * Method set Image for Different frogger animation
+     * @return imgW1, imgA1, imgS1, imgD1, imgW2, imgW2, imgA2, imgS2, imgD2
+     * @author sun
+     */
 	public void setImage() {
 		imgW1 = new Image("file:src/model/ActorResources/froggerUp.png", imgSize, imgSize, true, true);
 		imgA1 = new Image("file:src/model/ActorResources/froggerLeft.png", imgSize, imgSize, true, true);

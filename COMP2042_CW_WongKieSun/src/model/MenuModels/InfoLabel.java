@@ -42,6 +42,7 @@ public class InfoLabel extends Label{
 		 */
 	}
 	
+	
 	public InfoLabel(String text, boolean isMainLabel) {
 		/*
 		 * setPrefWidth(200); setPrefHeight(30);
@@ -57,7 +58,13 @@ public class InfoLabel extends Label{
 	
 	
 	
-	//method to set the font of the label
+	
+	
+	/**
+	 * Method to set font of the label
+	 * @param fontPath
+	 * @author sun
+	 */
 	private void setLabelFont(String fontPath) {
 		try {
 			setFont(Font.loadFont(new FileInputStream(new File(fontPath)), 23));

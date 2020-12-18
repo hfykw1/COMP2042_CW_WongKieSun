@@ -52,9 +52,9 @@ public abstract class Actor extends ImageView{
     
     /**
      * Is a method that 
-     * @param <A>
+     * @param <A extends Actor> 
      * @param cls
-     * @return
+     * @return array
      */
     public <A extends Actor> java.util.List<A> getIntersectingObjects(java.lang.Class<A> cls){
         ArrayList<A> someArray = new ArrayList<A>(); //new array list of type A which is an actor

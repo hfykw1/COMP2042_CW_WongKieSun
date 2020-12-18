@@ -15,7 +15,7 @@ import model.WetTurtle;
 
 /**
  * This class is used to make each of the object that the GameViewManager Class will later render
- * @author HP
+ * @author Sun
  *
  */
 public class GameSetter {
@@ -34,6 +34,18 @@ public class GameSetter {
     private static final String CROCODILE_LEFT = "file:src/model/ActorResources/crocodileleft.png";
     private static final String CROC_HEAD_= "file:src/model/ActorResources/crochead.png";
 	
+    /**
+     * Class for Game Setter
+     * @param numOfLogs
+     * @param numOfCars
+     * @param numOfTrucks
+     * @param numOfTurtles
+     * @param numOfCrocodiles
+     * @param CrocHead
+     * @author sun
+     * 
+     *make Frogger
+     */
 	public GameSetter(int numOfLogs, int numOfCars, int numOfTrucks, int numOfTurtles, int numOfCrocodiles, boolean CrocHead) {
 		//objects.clear();
 		createLog(numOfLogs, (int)Math.ceil(numOfLogs/2), numOfLogs);
@@ -88,9 +100,12 @@ public class GameSetter {
 		
 	}
 	
+
+
 	/**
-	 * Create five End objects and adds it to the objects ArrayList
-	 */
+     * Method Create five End objects and adds it to the objects {@link ArrayList}
+     * @author sun
+     */
 	private void createEnd() {
 		int xpos= 12; //128++
 		for(int i=0;i<5;i++) {

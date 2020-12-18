@@ -1,5 +1,6 @@
 package model.MenuModels;
 
+//This is a class for different frog that can be choose by user.
 public enum LEVEL {
 
 	LAZY("view/ViewResources/levelchooser/FrogA.png"),
@@ -21,3 +22,4 @@ public enum LEVEL {
 		return this.name();
 	}
 }
+

@@ -17,7 +17,10 @@ public class World extends Pane {
     public World() {
     	createSceneChangeListner();
     }
-
+    /**
+	 * Methods to create Scene Change 
+	 * @author sun
+	 */
     private void createSceneChangeListner() {
     	sceneProperty().addListener(new ChangeListener<Scene>() {
 
@@ -65,15 +68,30 @@ public class World extends Pane {
 	}
     
 	
-    
+    /**
+	 * Methods to add Node
+	 * @param node
+	 * @author sun
+	 */
     public void add(Node node) {
         getChildren().add(node);
     }
 
+    /**
+	 * Methods to remove node
+	 * @param node
+	 * @author sun
+	 */
     public void remove(Node node) {
         getChildren().remove(node);
     }
-    //the method below will return a list of Actor Objects //the method takes in an actor object as a parameter 
+    
+    /**
+	 * Methods to return list of Actor Objects
+	 * @param object
+	 * @return someArray
+	 * @author sun
+	 */
     public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         //checking if the object cls that we have passed into the method is an instance of Node class

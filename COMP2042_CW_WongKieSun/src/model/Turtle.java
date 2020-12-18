@@ -13,6 +13,14 @@ public class Turtle extends Actor{
 	
 	private int speed=0;
 	boolean bool = true;
+	
+	
+	/**
+     * Method to  act for Turtle
+     * @param now
+     * Get X speed, and re-set it.
+     * @author sun
+     */
 	@Override
 	public void act(long now) {
 
@@ -35,6 +43,17 @@ public class Turtle extends Actor{
 		if (getX() < -75 && speed<0)
 			setX(600);
 	}
+	
+	/**
+     * Method to set turtle Image
+     * @param imageLink
+     * @param size
+     * @param xpos
+     * @param ypos
+     * @param s
+     * @return points
+     * @author sun
+     */
 	public Turtle(int xpos, int ypos, int s, int w, int h) {
 		turtle1 = new Image(TURTLEANIMATION_1, w, h, true, true);
 		turtle2 = new Image(TURTLEANIMATION_2, w, h, true, true);
