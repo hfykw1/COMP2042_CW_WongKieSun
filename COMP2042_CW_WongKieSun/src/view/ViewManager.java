@@ -62,6 +62,9 @@ public class ViewManager {
 		createButton();
 		createBackground();
 		createSubScene();
+		mainPane.getStylesheets().add("view/frogStylesheet/mainmenu_stylesheet.css");
+		Image image = new Image("view/ViewResources/froggerUp.png");
+		mainStage.getIcons().add(image);
 	}
 	
 	//if there is a subscene that needs to be hidden move it 
