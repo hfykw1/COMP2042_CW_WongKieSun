@@ -172,7 +172,7 @@ public class GameViewManager {
 		TextField input = textDialog.getEditor();
 		
 		if(input.getText() !=null && input.getText().toString().length() != 0) {
-			System.out.println("\nWhat the fuck is this shit why is not showing anything="+input.getText().toString());
+			System.out.println("\nUsername: "+input.getText().toString());
 			playerName=input.getText().toString();
 		}
 		else {
@@ -212,9 +212,9 @@ public class GameViewManager {
             		}
             		else {
             		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You're Done Bro");
+            		alert.setTitle("GAME OVER!!!");
             		alert.setHeaderText("Your Score: "+frogger.getPoints()+"!");
-            		alert.setContentText("BETTER LUCK NEXT TIME LOSER");
+            		alert.setContentText("BETTER LUCK NEXT TIME :(");
             		alert.show();
             		}
             	}
@@ -321,7 +321,7 @@ public class GameViewManager {
     }
 	
     private void DisplayHighScore(int highScore) {
-    	System.out.println("This is the value of n"+highScore);
+    	System.out.println("/n Current High Score: "+highScore);
     	int shift = 0;	
     	if(highScore==0) {
     		for(int i=0;i<4;i++) {
