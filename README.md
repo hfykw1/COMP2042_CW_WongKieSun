@@ -32,7 +32,7 @@
 4. Info Page
 5. Help Scene 
 6. AND MANY MORE!
-<img src="https://github.com/hfykw1/COMP2042_CW_WongKieSun/blob/master/COMP2042_CW_WongKieSun/Game%20Menu.PNG" style="width:300px;"/>
+<img src="https://github.com/hfykw1/COMP2042_CW_WongKieSun/blob/master/COMP2042_CW_WongKieSun/Game%20Menu%20Sample.PNG" style="width:300px;"/>
 <img src="https://github.com/hfykw1/COMP2042_CW_WongKieSun/blob/master/COMP2042_CW_WongKieSun/Game%20Stage.PNG" style="width:300px;"/>
 
 ## 3. Bug Fixes
