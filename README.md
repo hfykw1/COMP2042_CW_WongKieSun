@@ -26,7 +26,14 @@
 
 
 ## 2. Features
-
+1. Main Menu
+2. High Score
+3. Levels
+4. Info Page
+5. Help Scene 
+6. AND MANY MORE!
+<img src="https://github.com/hfykw1/COMP2042_CW_WongKieSun/blob/master/COMP2042_CW_WongKieSun/Game%20Menu.PNG" style="width:300px;"/>
+<img src="https://github.com/hfykw1/COMP2042_CW_WongKieSun/blob/master/COMP2042_CW_WongKieSun/Game%20Stage.PNG" style="width:300px;"/>
 
 ## 3. Bug Fixes
 - Before, the score will not be deducted when it is lower than 50. Original author added an else if condition to prevent error. Bug has now been fixed and the marks will be equal to 0 if the marks is lower than 50. 
@@ -44,7 +51,8 @@
 - GitHub is used as the remote repository for this project and has been used frequently for this project
 - Dev branch was created at the start of the project and it is merged into the master branch after testing to assure it has no issue after the merging.
 - Every commits have been given meaningful comments.
-
+- Over 30 commits were made, and here is a sample screenshot of commits history.
+<img src="https://github.com/hfykw1/COMP2042_CW_WongKieSun/blob/master/COMP2042_CW_WongKieSun/GitHub%20Commit%20History.PNG" style="width:300px;"/>
 
 ## 6. Program Improvements
 
